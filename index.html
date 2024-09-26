@@ -41,6 +41,31 @@
             console.log(cadena)
             let invertida = cadena.split("").reverse().join("")
             console.log(invertida)
+
+            //Exercici punt dins la circumferència
+            var x = 0
+            var y = 0
+            var radi = 5
+            var a = 3
+            var b = 4
+
+            var distanciaAlQuadrat = (a-x)*(a-x)+(b-y)*(b-y)
+            var radiAlQuadrat = radi**2
+
+            if (distanciaAlQuadrat<radiAlQuadrat) {
+                console.log(a+" i "+b+" estan dins del cercle")
+            } else {
+                console.log(a+" i "+b+" NO estan dins del cercle!!!!")
+            }
+
+            //Exercici coincidencies a dos arrays
+            var array1 = [1,2,3,4,5];
+            console.log(array1);
+            var array2 = [2,5,8,9,23];
+            console.log(array2);
+            var coincidencies = array1.filter(value => array2.includes(value));
+            console.log(coincidencies);
+
         </script>
     </body>
 </html>
