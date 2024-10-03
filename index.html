@@ -72,5 +72,98 @@
             console.log(`El número ${numeroDecimal} en binari és ${numeroBinari}`)
 
         </script>
+        <div id="contenidor"></div>
+        <button onclick="agregarParagraf()">Agregar Paràgraf</button>
+        <button onclick="eliminarParagraf()">Eliminar Paràgraf</button>
+        <script>
+            function agregarParagraf() {
+                //creem constant i li assignem un paragraf
+                const newParagraf = document.createElement("p")
+                // assignar un text al paragraf
+                newParagraf.innerText = "Prova paràgraf!!!!!"
+
+                //passem variable al contenidor com a un objecte fill
+                document.getElementById("contenidor").appendChild(newParagraf)
+            }
+            function eliminarParagraf(){
+                // creem variable i agafem el contenidor
+                const contenidor = document.getElementById("contenidor")
+
+                //eliminar paragraf, mirem si es un element fill
+                if (contenidor.lastElementChild) {
+                    //eliminem l'ultim objecte de paragraf
+                    contenidor.removeChild(contenidor.lastElementChild)
+                }
+            }
+        </script>
+
+        <p>Llista de tasques: </p>
+        <input type="text" id="newTask" placeholder="Afegeix una tasca nova">
+        <button onclick="addTask()">Afegeix Tasca</button>
+        <ul id="taskList"></ul>
+        <script>
+            //creem funció
+            function addTask() {
+                //creem variable i li assignem valor 
+                const taskText = document.getElementById("newTask").value;
+
+                //ara mirem si l'usuari posa un valor buit
+                if (taskText === "") return;
+
+                //creem variable per assignar un element li
+                const newTask = document.createElement("li");
+                //assignem text de l'usuari a l'element
+                newTask.innerText = taskText;
+
+                //creem boto d'eliminar
+                const deleteButton = document.createElement("button");
+                // al boto li afegim el text d'eliminar
+                deleteButton.innerText = "Delete";
+                //creem funcio per eliminar l'element pare
+                deleteButton.onclick = function () {
+                    this.parentElement.remove();
+                }
+
+                //afegim boto a la tasca
+                newTask.appendChild(deleteButton);
+
+                //afegir la llista de tasques
+                document.getElementById("taskList").appendChild(newTask);
+
+                document.getElementById("newTask").value = "";
+            }
+        </script>
+        <p>Comptador: <span id="comptador">0</span></p>
+        <button id="incrementar">Incrementar</button>
+        <button id="decrementar">Decrementar</button>
+
+        <script>
+            //creem la variable del comptador i la iniciem a zero
+            let comptador = 0;
+
+            //Creem funcio per modificar el comptador
+            function actualitzarComptador() {
+                //assignem text al comptador
+                document.getElementById("comptador").innerText = comptador;
+            }
+
+            //Creem event per incrementar al boto
+            document.getElementById("incrementar").addEventListener('click', function () {
+                //incrementem valor variable
+                comptador++; 
+                //actualitzem text
+                actualitzarComptador()
+            });
+
+            //Creem event per decrementar al boto
+            document.getElementById("decrementar").addEventListener('click', function () {
+                //decrementem valor variable
+                comptador--;
+                //actualitzem text
+                actualitzarComptador()
+
+            })
+
+        </script>
     </body>
 </html>
