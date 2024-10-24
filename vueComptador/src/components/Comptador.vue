@@ -22,7 +22,7 @@
     };
 
      //funcio per decrementar el comptador
-     const decrementar = () => {
+    const decrementar = () => {
         //restem 1 valor
         comptador.value--;
     };   

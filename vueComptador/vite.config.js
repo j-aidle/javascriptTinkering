@@ -12,5 +12,11 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  test: {
+    environment: 'jsdom', //entorn jsdom
+    include: [
+      'src/tests/**/*.test.js' //cerca tests carpeta
+    ]
+  },
 })
